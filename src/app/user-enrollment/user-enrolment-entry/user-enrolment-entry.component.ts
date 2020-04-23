@@ -14,15 +14,19 @@ export class UserEnrolmentEntryComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log('-----name--------',name);
   }
-
+sampleMethod(){
+  console.log('sample Method');
+  return 'sample Method';
+}
   butnClicked(val){
-    console.log('button clicked', val.value);
+    console.log('button clicked', val);
     this.userName = val.value;
     this.newDate.emit('2020-04-20');
   }
-  keyPressed(event){
-    console.log('key pressssed',event);
-    this.userName = event.target.value;
+  keyPressed(ee){
+    console.log('key pressssed', ee);
+    this.userName = ee.target.value;
   }
 }
