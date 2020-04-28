@@ -1,2 +1,14 @@
 <h1>Welcome </h1>
-<app-user-enrolment></app-user-enrolment>
+<!-- <app-user-enrolment></app-user-enrolment> -->
+<!-- <div *ngFor="let num of displayArray">
+    <div>{{num}}</div>
+     <div *ngIf="displaySelected">{{num}}</div>
+</div> -->
+
+<ng-container *ngIf="displaySelected; else elseBlock">
+    <div *ngFor="let evenNum of evenArray" [ngClass]="{'even': displaySelected}" [ngStyle]="{'background-color': displaySelected ? 'pink' : 'yellow'}">{{evenNum}}</div>
+</ng-container>
+<ng-template #elseBlock>
+    <div *ngFor="let oddNum of oddArray" [ngClass]="{'odd': !displaySelected}" [ngStyle]="{'background-color': displaySelected ? 'pink' : 'yellow'}">{{oddNum}}</div>
+</ng-template>
+<button (click)=" toggleEvenOdd() ">{{btnName}} </button>

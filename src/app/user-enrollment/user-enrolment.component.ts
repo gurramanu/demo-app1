@@ -8,13 +8,13 @@ import { UserEnrolmentEntryComponent } from './user-enrolment-entry/user-enrolme
 })
 export class UserEnrolmentComponent implements OnInit, AfterViewInit {
 
-  @ViewChild(UserEnrolmentEntryComponent, {static:false}) entryComponent: UserEnrolmentEntryComponent;
-  @ViewChild('sampleTag',{static: false}) sampleTag: ElementRef;
-  todayDate = '2020-04-19';
+  @ViewChild(UserEnrolmentEntryComponent, {static:true}) entryComponent: UserEnrolmentEntryComponent;
+  @ViewChild('sampleTag',{static: true}) sampleTag: ElementRef;
+  todayDate = '2000';
   constructor() { }
 
   ngOnInit() {
-    console.log('=-----dddddddddddddddddd------', this.sampleTag.nativeElement.innerHTML);
+    console.log('=-----ngOnInit------', this.sampleTag.nativeElement.innerHTML);
   }
   gotData(val, third){
     console.log('got data ...........', val);
@@ -23,6 +23,6 @@ export class UserEnrolmentComponent implements OnInit, AfterViewInit {
     console.log('third value', third);
   }
   ngAfterViewInit(){
-    console.log('=-----sampleTag------', this.sampleTag.nativeElement.innerHTML);
+    console.log('=-----ngAfterViewInit------', this.sampleTag.nativeElement.innerHTML);
   }
 }
